@@ -30,7 +30,7 @@ export const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-navy-800/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-green-800/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -57,13 +57,16 @@ export const Navigation = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-all duration-200 hover:text-gold-300 ${
+                className={`text-sm font-medium transition-all duration-200 hover:text-gold-300 relative ${
                   location.pathname === link.to
-                    ? isScrolled ? 'text-gold-300' : 'text-gold-300'
-                    : isScrolled ? 'text-white' : 'text-white'
+                    ? 'text-gold-300 font-semibold'
+                    : isScrolled ? 'text-white' : 'text-white drop-shadow-lg'
                 } hover:scale-105`}
               >
                 {link.label}
+                {location.pathname === link.to && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gold-300 rounded-full"></span>
+                )}
               </Link>
             ))}
             <Link to="/quote">
@@ -79,22 +82,22 @@ export const Navigation = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? 'text-white' : 'text-white'}`} />
+              <X className={`w-6 h-6 ${isScrolled ? 'text-white' : 'text-white drop-shadow-lg'}`} />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-white' : 'text-white'}`} />
+              <Menu className={`w-6 h-6 ${isScrolled ? 'text-white' : 'text-white drop-shadow-lg'}`} />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-navy-800/95 backdrop-blur-md rounded-lg mt-2 p-4 shadow-xl">
+          <div className="lg:hidden bg-green-800/95 backdrop-blur-md rounded-lg mt-2 p-4 shadow-xl">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 className={`block py-3 text-sm font-medium transition-colors ${
-                  location.pathname === link.to ? 'text-gold-300' : 'text-white'
+                  location.pathname === link.to ? 'text-gold-300 font-semibold' : 'text-white'
                 } hover:text-gold-300`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

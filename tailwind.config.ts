@@ -63,18 +63,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom navy and gold colors
-				navy: {
-					50: '#f0f4f8',
-					100: '#d9e2ec',
-					200: '#bcccdc',
-					300: '#9fb3c8',
-					400: '#829ab1',
-					500: '#627d98',
-					600: '#486581',
-					700: '#334e68',
-					800: '#243b53',
-					900: '#1a365d',
+				// Custom green colors replacing navy
+				green: {
+					50: '#f0f9f4',
+					100: '#dcf4e3',
+					200: '#bce7c9',
+					300: '#8fd4a4',
+					400: '#5cb876',
+					500: '#369c54',
+					600: '#297d42',
+					700: '#226537',
+					800: '#1f512f',
+					900: '#1a4327',
 				},
 				gold: {
 					50: '#fffbeb',

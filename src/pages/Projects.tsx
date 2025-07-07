@@ -77,7 +77,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-navy-900 to-navy-700">
+      <section className="py-20 bg-gradient-to-br from-green-900 to-green-700">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">Our Projects</h1>
@@ -100,7 +100,7 @@ const Projects = () => {
                 className={`px-6 py-2 rounded-full transition-all duration-300 ${
                   activeFilter === filter.id
                     ? 'bg-gold-600 hover:bg-gold-700 text-white'
-                    : 'border-navy-300 text-navy-700 hover:bg-navy-50'
+                    : 'border-green-300 text-green-700 hover:bg-green-50'
                 }`}
               >
                 {filter.label}
@@ -130,7 +130,7 @@ const Projects = () => {
                     </span>
                     <span className="text-sm text-gray-500">{project.year}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-navy-800 mb-3">{project.title}</h3>
+                  <h3 className="text-xl font-semibold text-green-800 mb-3">{project.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-500">{project.location}</span>
@@ -146,7 +146,7 @@ const Projects = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-navy-800">
+      <section className="py-20 bg-green-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
