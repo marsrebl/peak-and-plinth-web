@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import { Phone, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PhoneCall, ChevronUp } from 'lucide-react';
 
 export const FloatingButtons = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -16,35 +16,32 @@ export const FloatingButtons = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleCallClick = () => {
-    window.location.href = 'tel:+1234567890';
+  const handleCall = () => {
+    window.location.href = 'tel:+15551234567';
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
-      {/* Click to Call Button */}
+    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+      {/* Call Button */}
       <Button
-        onClick={handleCallClick}
-        className="w-14 h-14 rounded-full bg-gold-600 hover:bg-gold-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-        size="icon"
+        onClick={handleCall}
+        className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+        title="Call us now"
       >
-        <PhoneCall className="w-6 h-6" />
+        <Phone size={20} />
       </Button>
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
-          className="w-14 h-14 rounded-full bg-green-700 hover:bg-green-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 animate-fade-in"
-          size="icon"
+          className="w-14 h-14 rounded-full bg-gray-800 hover:bg-gray-900 text-white shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center animate-fade-in"
+          title="Scroll to top"
         >
-          <ChevronUp className="w-6 h-6" />
+          <ChevronUp size={20} />
         </Button>
       )}
     </div>

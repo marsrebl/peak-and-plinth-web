@@ -110,11 +110,15 @@ const Rentals = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-navy-900 to-navy-700">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)]"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">Premium Rentals</h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">Premium Rentals</h1>
+            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto">
               Find your perfect home from our curated collection of premium rental properties
             </p>
           </div>
@@ -132,12 +136,12 @@ const Rentals = () => {
                 placeholder="Search by location or property name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-10 border-emerald-200 focus:border-emerald-500"
               />
             </div>
             
             <Select value={priceRange} onValueChange={setPriceRange}>
-              <SelectTrigger className="w-full lg:w-48">
+              <SelectTrigger className="w-full lg:w-48 border-emerald-200 focus:border-emerald-500">
                 <SelectValue placeholder="Price Range" />
               </SelectTrigger>
               <SelectContent>
@@ -149,7 +153,7 @@ const Rentals = () => {
             </Select>
 
             <Select value={propertyType} onValueChange={setPropertyType}>
-              <SelectTrigger className="w-full lg:w-48">
+              <SelectTrigger className="w-full lg:w-48 border-emerald-200 focus:border-emerald-500">
                 <SelectValue placeholder="Property Type" />
               </SelectTrigger>
               <SelectContent>
@@ -164,11 +168,11 @@ const Rentals = () => {
       </section>
 
       {/* Properties Grid */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gradient-to-b from-emerald-50 to-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProperties.map((property) => (
-              <Card key={property.id} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 overflow-hidden">
+              <Card key={property.id} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 overflow-hidden bg-white">
                 <div className="relative aspect-video">
                   <img
                     src={`https://images.unsplash.com/${property.image}?w=400&h=300&fit=crop`}
@@ -177,20 +181,20 @@ const Rentals = () => {
                   />
                   <button
                     onClick={() => toggleFavorite(property.id)}
-                    className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
+                    className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg"
                   >
                     <Heart 
                       className={`w-5 h-5 ${favorites.includes(property.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} 
                     />
                   </button>
-                  <div className="absolute bottom-4 left-4 bg-navy-900/90 text-white px-3 py-1 rounded-full">
+                  <div className="absolute bottom-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-lg">
                     <span className="text-lg font-bold">${property.price.toLocaleString()}</span>
                     <span className="text-sm">/month</span>
                   </div>
                 </div>
                 
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-navy-800 mb-2">{property.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{property.title}</h3>
                   
                   <div className="flex items-center text-gray-600 mb-4">
                     <MapPin size={16} className="mr-1" />
@@ -214,7 +218,7 @@ const Rentals = () => {
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {property.features.slice(0, 2).map((feature, index) => (
-                      <span key={index} className="text-xs bg-gold-100 text-gold-700 px-2 py-1 rounded-full">
+                      <span key={index} className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">
                         {feature}
                       </span>
                     ))}
@@ -224,10 +228,10 @@ const Rentals = () => {
                   </div>
 
                   <div className="flex gap-2">
-                    <Button className="flex-1 bg-gold-600 hover:bg-gold-700 text-white">
+                    <Button className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white">
                       View Details
                     </Button>
-                    <Button variant="outline" className="border-navy-300 text-navy-700 hover:bg-navy-50">
+                    <Button variant="outline" className="border-emerald-300 text-emerald-700 hover:bg-emerald-50">
                       Contact
                     </Button>
                   </div>
@@ -238,7 +242,7 @@ const Rentals = () => {
 
           {filteredProperties.length === 0 && (
             <div className="text-center py-16">
-              <h3 className="text-2xl font-semibold text-navy-800 mb-4">No properties found</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">No properties found</h3>
               <p className="text-gray-600">Try adjusting your search criteria</p>
             </div>
           )}
@@ -246,15 +250,15 @@ const Rentals = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-navy-800">
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Can't Find What You're Looking For?
           </h2>
-          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
             Our team can help you find the perfect rental property that meets all your requirements
           </p>
-          <Button className="bg-gold-600 hover:bg-gold-700 text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105">
+          <Button className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-semibold shadow-xl">
             Contact Our Rental Team
           </Button>
         </div>

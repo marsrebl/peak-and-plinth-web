@@ -34,11 +34,15 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-navy-900 to-navy-700">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)]"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)]"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">Contact Us</h1>
+            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto">
               Ready to start your project? Get in touch with our expert team today
             </p>
           </div>
@@ -46,13 +50,13 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-emerald-50 to-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <Card className="border-0 shadow-xl">
+            <Card className="border-0 shadow-xl bg-white">
               <CardContent className="p-8">
-                <h2 className="text-3xl font-bold text-navy-800 mb-6">Send us a Message</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -64,6 +68,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={(e) => handleChange('name', e.target.value)}
                         placeholder="Your full name"
+                        className="border-emerald-200 focus:border-emerald-500"
                       />
                     </div>
                     <div>
@@ -74,6 +79,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={(e) => handleChange('phone', e.target.value)}
                         placeholder="Your phone number"
+                        className="border-emerald-200 focus:border-emerald-500"
                       />
                     </div>
                   </div>
@@ -88,6 +94,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={(e) => handleChange('email', e.target.value)}
                       placeholder="your.email@example.com"
+                      className="border-emerald-200 focus:border-emerald-500"
                     />
                   </div>
 
@@ -96,7 +103,7 @@ const Contact = () => {
                       Service of Interest
                     </label>
                     <Select value={formData.service} onValueChange={(value) => handleChange('service', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="border-emerald-200 focus:border-emerald-500">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
@@ -119,11 +126,11 @@ const Contact = () => {
                       value={formData.message}
                       onChange={(e) => handleChange('message', e.target.value)}
                       placeholder="Tell us about your project..."
-                      className="resize-none"
+                      className="resize-none border-emerald-200 focus:border-emerald-500"
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-gold-600 hover:bg-gold-700 text-white py-3 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105">
+                  <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg">
                     Send Message
                   </Button>
                 </form>
@@ -133,7 +140,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-navy-800 mb-6">Get in Touch</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8">
                   We're here to help bring your vision to life. Contact us through any of the 
                   following methods, and we'll respond within 24 hours.
@@ -141,14 +148,14 @@ const Contact = () => {
               </div>
 
               <div className="space-y-6">
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-gold-100 p-3 rounded-full">
-                        <MapPin className="text-gold-600" size={24} />
+                      <div className="bg-gradient-to-br from-emerald-100 to-green-100 p-3 rounded-full shadow-lg">
+                        <MapPin className="text-emerald-600" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-navy-800 mb-2">Address</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
                         <p className="text-gray-600">
                           123 Business District<br />
                           Construction Plaza<br />
@@ -159,14 +166,14 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-gold-100 p-3 rounded-full">
-                        <Phone className="text-gold-600" size={24} />
+                      <div className="bg-gradient-to-br from-emerald-100 to-green-100 p-3 rounded-full shadow-lg">
+                        <Phone className="text-emerald-600" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-navy-800 mb-2">Phone</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
                         <p className="text-gray-600">
                           Main: +1 (555) 123-4567<br />
                           Emergency: +1 (555) 123-4568
@@ -176,14 +183,14 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-gold-100 p-3 rounded-full">
-                        <Mail className="text-gold-600" size={24} />
+                      <div className="bg-gradient-to-br from-emerald-100 to-green-100 p-3 rounded-full shadow-lg">
+                        <Mail className="text-emerald-600" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-navy-800 mb-2">Email</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
                         <p className="text-gray-600">
                           General: info@realestatecrafter.com<br />
                           Projects: projects@realestatecrafter.com
@@ -193,14 +200,14 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-gold-100 p-3 rounded-full">
-                        <Clock className="text-gold-600" size={24} />
+                      <div className="bg-gradient-to-br from-emerald-100 to-green-100 p-3 rounded-full shadow-lg">
+                        <Clock className="text-emerald-600" size={24} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-navy-800 mb-2">Business Hours</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
                         <p className="text-gray-600">
                           Monday - Friday: 8:00 AM - 6:00 PM<br />
                           Saturday: 9:00 AM - 4:00 PM<br />
@@ -220,16 +227,18 @@ const Contact = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-navy-800 mb-4">Visit Our Office</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
             <p className="text-xl text-gray-600">
               Located in the heart of the business district
             </p>
           </div>
           
-          <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
+          <div className="bg-gradient-to-br from-emerald-100 to-green-100 h-96 rounded-lg flex items-center justify-center shadow-xl">
             <div className="text-center">
-              <MapPin className="mx-auto text-gray-400 mb-4" size={48} />
-              <p className="text-gray-600">Interactive map would be integrated here</p>
+              <div className="bg-white p-4 rounded-full shadow-lg mb-4 inline-block">
+                <MapPin className="text-emerald-600" size={48} />
+              </div>
+              <p className="text-gray-700 font-medium">Interactive map would be integrated here</p>
             </div>
           </div>
         </div>
