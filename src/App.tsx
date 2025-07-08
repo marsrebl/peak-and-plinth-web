@@ -15,6 +15,7 @@ import Rentals from "./pages/Rentals";
 import Contact from "./pages/Contact";
 import Quote from "./pages/Quote";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/scrolltotop";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
         <div className="min-h-screen flex flex-col bg-gray-50">
           <Navigation />
           <main className="flex-1">
+          <ScrollToTop/>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />

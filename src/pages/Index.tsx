@@ -52,9 +52,9 @@ const Index = () => {
         </div>
         
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-5"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity0"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1920&h=1080&fit=crop')`
+            backgroundImage: `url('../src/images/caption.jpg')`
           }}
         ></div>
         
@@ -67,10 +67,10 @@ const Index = () => {
               </div>
             </div>
             
-            <h1 className="text-5xl lg:text-8xl font-bold text-gray-900 mb-8 leading-tight">
-              Building Dreams,
-              <span className="text-transparent bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text block">
-                Crafting Excellence
+            <h1 className="text-5xl lg:text-8xl font-bold text-gray-90 mb-8 leading-tight">
+              Yours Dreams,
+              <span className="text-transparent bg-gradient-to-r from-emerald-600 via-green1000 to-teal-600 bg-clip-text block">
+               Our Builds
               </span>
             </h1>
             

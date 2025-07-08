@@ -9,15 +9,26 @@ export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+ useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Detect scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setShowNavbar(false); // scroll down
+      } else {
+        setShowNavbar(true); // scroll up
+      }
+
+      setLastScrollY(currentScrollY);
+      setIsScrolled(currentScrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { to: '/', label: 'Home' },
@@ -29,9 +40,10 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
+  <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
+  showNavbar ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+} ${isScrolled ? 'bg-gradient-to-r from-white/90 via-emerald-100/80 to-white/90 backdrop-blur-xl shadow-xl border-b border-emerald-100' : 'bg-transparent'}`}>
+
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
