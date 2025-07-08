@@ -1,0 +1,9 @@
+
+This folder contains the website images:
+- tree-branches.jpg (hero background)
+- construction.jpg (construction service)
+- house-rental.jpg (rental service)  
+- renovation.jpg (renovation service)
+- engineering.jpg (engineering service)
+
+These images should be added to maintain the visual design of the website.

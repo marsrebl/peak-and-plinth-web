@@ -10,25 +10,25 @@ const Index = () => {
     {
       title: 'Construction',
       description: 'Premium construction services with modern techniques and quality materials.',
-      image: 'photo-1487958449943-2429e8be8625',
+      image: '/images/construction.jpg',
       icon: Building
     },
     {
       title: 'House Rentals',
       description: 'Find your perfect home with our curated rental properties.',
-      image: 'photo-1518005020951-eccb494ad742',
+      image: '/images/house-rental.jpg',
       icon: Home
     },
     {
       title: 'Renovations',
       description: 'Transform your space with our expert renovation services.',
-      image: 'photo-1433832597046-4f10e10ac764',
+      image: '/images/renovation.jpg',
       icon: Wrench
     },
     {
       title: 'Engineering',
       description: 'Professional engineering solutions for all your construction needs.',
-      image: 'photo-1493397212122-2b85dda8106b',
+      image: '/images/engineering.jpg',
       icon: Calculator
     }
   ];
@@ -52,9 +52,9 @@ const Index = () => {
         </div>
         
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity0"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `url('../src/images/caption.jpg')`
+            backgroundImage: `url('/images/tree-branches.jpg')`
           }}
         ></div>
         
@@ -67,9 +67,9 @@ const Index = () => {
               </div>
             </div>
             
-            <h1 className="text-5xl lg:text-8xl font-bold text-gray-90 mb-8 leading-tight">
-              Yours Dreams,
-              <span className="text-transparent bg-gradient-to-r from-emerald-600 via-green1000 to-teal-600 bg-clip-text block">
+            <h1 className="text-5xl lg:text-8xl font-bold text-gray-900 mb-8 leading-tight">
+              Your Dreams,
+              <span className="text-transparent bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text block">
                Our Builds
               </span>
             </h1>
@@ -88,8 +88,9 @@ const Index = () => {
               </Link>
               
               <Link to="/projects">
-                <Button className="group bg-white/90 backdrop-blur-md hover:bg-white border-2 border-emerald-200 hover:border-emerald-300 text-emerald-700 hover:text-emerald-800 px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-emerald-100/50">
-                  <span className="flex items-center gap-3 font-semibold">
+                <Button className="group relative overflow-hidden bg-white/10 backdrop-blur-md border-2 border-emerald-300/50 text-emerald-800 hover:text-emerald-900 px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-emerald-200/50">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-100/20 to-green-100/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative flex items-center gap-3 font-semibold">
                     View Projects
                     <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                   </span>
@@ -146,9 +147,12 @@ const Index = () => {
                 <div className="aspect-square overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                   <img
-                    src={`https://images.unsplash.com/${service.image}?w=400&h=400&fit=crop`}
+                    src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=400&fit=crop`;
+                    }}
                   />
                   <div className="absolute bottom-4 left-4 z-20">
                     <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg">
