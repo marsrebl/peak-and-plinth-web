@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -146,9 +145,9 @@ const Rentals = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Prices</SelectItem>
-                <SelectItem value="under-2000">Under $2,000</SelectItem>
-                <SelectItem value="2000-4000">$2,000 - $4,000</SelectItem>
-                <SelectItem value="over-4000">Over $4,000</SelectItem>
+                <SelectItem value="under-2000">Under NPR 2,000</SelectItem>
+                <SelectItem value="2000-4000">NPR 2,000 - NPR 4,000</SelectItem>
+                <SelectItem value="over-4000">Over NPR 4,000</SelectItem>
               </SelectContent>
             </Select>
 
@@ -188,7 +187,7 @@ const Rentals = () => {
                     />
                   </button>
                   <div className="absolute bottom-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-lg">
-                    <span className="text-lg font-bold">${property.price.toLocaleString()}</span>
+                    <span className="text-lg font-bold">NPR {property.price.toLocaleString()}</span>
                     <span className="text-sm">/month</span>
                   </div>
                 </div>

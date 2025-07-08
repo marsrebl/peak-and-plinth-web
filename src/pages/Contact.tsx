@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -73,9 +72,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone
+                        Phone *
                       </label>
                       <Input
+                        required
                         value={formData.phone}
                         onChange={(e) => handleChange('phone', e.target.value)}
                         placeholder="Your phone number"
@@ -86,11 +86,10 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
+                      Email
                     </label>
                     <Input
                       type="email"
-                      required
                       value={formData.email}
                       onChange={(e) => handleChange('email', e.target.value)}
                       placeholder="your.email@example.com"
@@ -157,9 +156,9 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
                         <p className="text-gray-600">
-                          123 Business District<br />
-                          Construction Plaza<br />
-                          City, State 12345
+                          Dhanusha District<br />
+                          Janakpurdham<br />
+                          Nepal
                         </p>
                       </div>
                     </div>
@@ -175,8 +174,8 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
                         <p className="text-gray-600">
-                          Main: +1 (555) 123-4567<br />
-                          Emergency: +1 (555) 123-4568
+                          Main: 9806255843<br />
+                          Alternative:98000000
                         </p>
                       </div>
                     </div>
@@ -209,9 +208,9 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
                         <p className="text-gray-600">
-                          Monday - Friday: 8:00 AM - 6:00 PM<br />
-                          Saturday: 9:00 AM - 4:00 PM<br />
-                          Sunday: Emergency only
+                          Sunday - Friday: 8:00 AM - 6:00 PM<br />
+                          Saturday: Emergencies<br />
+                        
                         </p>
                       </div>
                     </div>
@@ -229,17 +228,21 @@ const Contact = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
             <p className="text-xl text-gray-600">
-              Located in the heart of the business district
+              Located in the heart of Nepal ,dhanusha district
             </p>
           </div>
-          
-          <div className="bg-gradient-to-br from-emerald-100 to-green-100 h-96 rounded-lg flex items-center justify-center shadow-xl">
-            <div className="text-center">
-              <div className="bg-white p-4 rounded-full shadow-lg mb-4 inline-block">
-                <MapPin className="text-emerald-600" size={48} />
-              </div>
-              <p className="text-gray-700 font-medium">Interactive map would be integrated here</p>
-            </div>
+
+          <div className="bg-white rounded-lg overflow-hidden shadow-xl">
+            <iframe
+              title="Janakpurdham Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.636621522495!2d85.92754381506192!3d26.72893648200892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec1f352a75941f%3A0xd76307e18e2169a1!2sJanakpur!5e0!3m2!1sen!2snp!4v1689140242800!5m2!1sen!2snp"
+              width="100%"
+              height="480"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-[480px] border-0"
+            ></iframe>
           </div>
         </div>
       </section>

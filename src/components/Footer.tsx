@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Logo } from './Logo';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 export const Footer = () => {
@@ -12,13 +10,13 @@ export const Footer = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_25%,rgba(34,197,94,0.3),transparent)]"></div>
         <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_75%_75%,rgba(34,197,94,0.2),transparent)]"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
-              <Logo className="h-8" />
+            <div className="flex items-center space-x-4 mb-6">
+              <img src="/images/logo.png" alt="Logo" className="h-24 w-auto" />
               <div>
                 <div className="text-lg font-bold text-white">Real Estate Crafters</div>
                 <div className="text-sm text-green-400">International Pvt. Ltd.</div>
@@ -122,6 +120,7 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Copyright */}
         <div className="border-t border-slate-700 mt-12 pt-8 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400">

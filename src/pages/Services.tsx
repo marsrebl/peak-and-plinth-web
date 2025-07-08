@@ -1,39 +1,70 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Hammer, Home, Wrench, Calculator, ArrowRight } from 'lucide-react';
+import { Home, Wrench, Paintbrush, Landmark, Hammer, ArrowRight } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
       icon: Hammer,
-      title: 'Construction Services',
-      description: 'Complete construction solutions from residential to commercial projects.',
-      features: ['Residential Construction', 'Commercial Buildings', 'Infrastructure Development', 'Project Management'],
-      image: 'photo-1487958449943-2429e8be8625'
+      title: 'House Construction & Engineering',
+      description: 'End-to-end construction solutions using modern techniques and expert engineering guidance.',
+      features: [
+        'Customized Residential Plans',
+        'Modern Architecture & Design',
+        'Structural Engineering & Supervision',
+        'Earthquake Resistant Buildings'
+      ],
+      image: '../images/house-constructionan.jpg'
     },
     {
-      icon: Home,
-      title: 'House Rentals',
-      description: 'Premium rental properties in prime locations with excellent amenities.',
-      features: ['Luxury Apartments', 'Family Homes', 'Furnished Options', '24/7 Support'],
-      image: 'photo-1518005020951-eccb494ad742'
+      icon: Landmark,
+      title: 'Land Buying & Selling',
+      description: 'Transparent and verified land trading service ensuring legality, valuation, and documentation.',
+      features: [
+        'Land Ownership Verification',
+        'Fair Market Valuation',
+        'Secure Legal Transfers',
+        'Urban & Rural Property Deals'
+      ],
+      image: '../images/land-selling.jpg'
     },
     {
       icon: Wrench,
-      title: 'Renovations',
-      description: 'Transform your existing space with our expert renovation services.',
-      features: ['Kitchen Remodeling', 'Bathroom Upgrades', 'Interior Design', 'Structural Changes'],
-      image: 'photo-1433832597046-4f10e10ac764'
+      title: 'Electricians & Plumbing Services',
+      description: 'Certified experts to handle residential and commercial electrical and plumbing needs.',
+      features: [
+        'House Wiring & Safety Checks',
+        'Inverter & Generator Setup',
+        'Water Pipeline & Motor Installation',
+        'Bathroom & Kitchen Plumbing'
+      ],
+      image: '../images/plumbing-electrical.jpg'
     },
     {
-      icon: Calculator,
-      title: 'Engineering Services',
-      description: 'Professional engineering consultancy and structural design services.',
-      features: ['Structural Engineering', 'Design Consultation', 'Safety Assessment', 'Technical Support'],
-      image: 'photo-1493397212122-2b85dda8106b'
+      icon: Paintbrush,
+      title: 'House Painting Services',
+      description: 'Transform your home’s appearance with premium paint jobs and aesthetic consultations.',
+      features: [
+        'Interior & Exterior Painting',
+        'Weatherproof & Eco-Friendly Paints',
+        'Custom Color Consultations',
+        'Texture & Finish Options'
+      ],
+      image: '../images/house-painting.jpg'
+    },
+    {
+      icon: Home,
+      title: 'Property Management & Renovation',
+      description: 'Hassle-free management of properties and complete renovation services for increased value.',
+      features: [
+        'Rental Management',
+        'Maintenance & Repairs',
+        'Old Home Renovation',
+        'Property Inspection & Valuation'
+      ],
+      image: '../images/property-management.jpg'
     }
   ];
 
@@ -49,7 +80,7 @@ const Services = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">Our Services</h1>
             <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto">
-              Comprehensive solutions for all your construction and real estate needs
+              One-stop solutions for construction, maintenance, and property management.
             </p>
           </div>
         </div>
@@ -64,7 +95,7 @@ const Services = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div className="aspect-square md:aspect-auto relative overflow-hidden">
                     <img
-                      src={`https://images.unsplash.com/${service.image}?w=400&h=300&fit=crop`}
+                      src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -84,38 +115,14 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
+                    <Link to="/contact">
+                      <Button className="mt-4 bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300">
+                        Contact Us <ArrowRight className="ml-2" size={16} />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </div>
               </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              How we deliver exceptional results for every project
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: '01', title: 'Consultation', description: 'Understanding your needs and vision' },
-              { step: '02', title: 'Planning', description: 'Detailed project planning and design' },
-              { step: '03', title: 'Execution', description: 'Professional implementation and construction' },
-              { step: '04', title: 'Delivery', description: 'Final inspection and project handover' }
-            ].map((process, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-gradient-to-br from-emerald-100 to-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:from-emerald-200 group-hover:to-green-200 transition-colors shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                  <span className="text-emerald-600 font-bold text-lg">{process.step}</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{process.title}</h3>
-                <p className="text-gray-600">{process.description}</p>
-              </div>
             ))}
           </div>
         </div>

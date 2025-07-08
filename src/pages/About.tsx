@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Award, Users, Target, Heart } from 'lucide-react';
+import { Award, Users, Target, Heart, MapPin } from 'lucide-react';
 
 const About = () => {
   const values = [
@@ -26,6 +25,8 @@ const About = () => {
       description: 'Building lasting relationships through trust, transparency, and reliability.'
     }
   ];
+
+  const areas = ['Janakpur', 'Bardibas', 'Lalbandi', 'Hetauda', 'Kathmandu'];
 
   return (
     <div className="min-h-screen pt-20">
@@ -73,7 +74,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-emerald-200 to-green-200 rounded-2xl blur-xl opacity-50"></div>
               <img
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop"
+                src="../images/Realestate.jpg"
                 alt="Our Story"
                 className="relative rounded-2xl shadow-2xl"
               />
@@ -107,41 +108,78 @@ const About = () => {
           </div>
         </div>
       </section>
-
       {/* Team Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Leadership</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the experienced professionals leading our company
-            </p>
-          </div>
+<section className="py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-5xl font-bold text-gray-900 mb-4">Our Leadership</h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Meet the visionary leading our company forward.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { name: 'John Anderson', role: 'CEO & Founder', image: 'photo-1507003211169-0a1dd7228f2d' },
-              { name: 'Sarah Johnson', role: 'Head of Construction', image: 'photo-1494790108755-2616c6fe904' },
-              { name: 'Michael Chen', role: 'Chief Engineer', image: 'photo-1472099645785-5658abf4ff4e' }
-            ].map((member, index) => (
-              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-0">
-                <CardContent className="p-8">
-                  <div className="relative mb-6">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald-200 to-green-200 rounded-full blur opacity-50"></div>
-                    <img
-                      src={`https://images.unsplash.com/${member.image}?w=200&h=200&fit=crop&crop=face`}
-                      alt={member.name}
-                      className="relative w-32 h-32 mx-auto rounded-full object-cover shadow-xl"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-emerald-600 font-medium">{member.role}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-gradient-to-br from-emerald-100 to-green-50 p-10 rounded-3xl shadow-2xl text-center group hover:shadow-emerald-200 transition-all duration-300">
+        <div className="relative mb-10 w-60 h-60 mx-auto">
+          <div className="absolute -inset-2 bg-gradient-to-tr from-emerald-300 to-green-300 rounded-full blur-xl opacity-50 group-hover:opacity-70 transition"></div>
+          <img
+            src="../images/logo.png"
+            alt="Md Araman Husen"
+            className="relative w-60 h-60 rounded-full object-cover border-4 border-white shadow-xl transition-transform duration-300 group-hover:scale-105"
+          />
         </div>
-      </section>
+        <h3 className="text-3xl font-extrabold text-gray-900 mb-2">Md Araman Husen</h3>
+        <p className="text-emerald-700 font-semibold text-lg mb-3">Managing Director</p>
+        <p className="text-gray-500 mb-1">Janakpurdham, Nepal</p>
+        <p className="text-gray-700 font-semibold text-lg">📞 9706255843</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* Areas We Deal Section */}
+<section className="py-20 bg-gradient-to-b from-green-50 to-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">Areas We Deal In</h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Our services are available across major cities in Nepal.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {[
+        { name: 'Janakpur', image: '../images/cities/janakpur.jpg' },
+        { name: 'Bardibas', image: '../images/cities/bardibas.gif' },
+        { name: 'Lalbandi', image: '../images/cities/lalbandi.jpg' },
+        { name: 'Hetauda', image: '../images/cities/hetauda.jpg' },
+        { name: 'Kathmandu', image: '../images/cities/kathmandu.avif' },
+        { name: 'Pokhara', image: '../images/cities/pokhara.jpg' }
+      ].map((city, index) => (
+        <Card
+          key={index}
+          className="overflow-hidden group shadow hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 bg-white border-0"
+        >
+          <div className="relative h-56 overflow-hidden">
+            <img
+              src={city.image}
+              alt={city.name}
+              className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+              onError={(e) => {
+                e.currentTarget.src =
+                  'https://images.unsplash.com/photo-1509228627159-6452b3f743d4?auto=format&fit=crop&w=600&h=300';
+              }}
+            />
+            <div className="absolute inset-0 bg-black/30 flex items-end p-4">
+              <h3 className="text-white text-xl font-semibold">{city.name}</h3>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };

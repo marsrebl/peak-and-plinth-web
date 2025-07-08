@@ -1,34 +1,44 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Award, Users, Calendar, CheckCircle, Sparkles, Building, Home, Wrench, Calculator } from 'lucide-react';
+import {
+  ArrowRight,
+  Award,
+  Users,
+  Calendar,
+  CheckCircle,
+  Sparkles,
+  Building,
+  Home,
+  Wrench,
+  Calculator
+} from 'lucide-react';
 
 const Index = () => {
   const services = [
     {
       title: 'Construction',
       description: 'Premium construction services with modern techniques and quality materials.',
-      image: '/images/construction.jpg',
+      image: '../images/construction.avif',
       icon: Building
     },
     {
       title: 'House Rentals',
       description: 'Find your perfect home with our curated rental properties.',
-      image: '/images/house-rental.jpg',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80',
       icon: Home
     },
     {
       title: 'Renovations',
       description: 'Transform your space with our expert renovation services.',
-      image: '/images/renovation.jpg',
+      image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80',
       icon: Wrench
     },
     {
       title: 'Engineering',
       description: 'Professional engineering solutions for all your construction needs.',
-      image: '/images/engineering.jpg',
+      image: '../images/engineering.webp',
       icon: Calculator
     }
   ];
@@ -44,55 +54,60 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-100/20 rounded-full blur-3xl"></div>
-        </div>
-        
+        {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
           style={{
-            backgroundImage: `url('/images/tree-branches.jpg')`
+            backgroundImage: "url('../images/captions.jpg')"
           }}
         ></div>
-        
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/30"></div>
+
+        {/* Decorative Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-100/10 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-4xl animate-fade-in">
+          <div className="max-w-4xl animate-fade-in text-white">
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center gap-2 bg-emerald-100 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-200">
-                <Sparkles className="w-4 h-4 text-emerald-600" />
-                <span className="text-emerald-700 text-sm font-medium">Premium Real Estate Solutions</span>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <Sparkles className="w-4 h-4 text-emerald-200" />
+                <span className="text-emerald-100 text-sm font-medium">Premium Real Estate Solutions</span>
               </div>
             </div>
-            
-            <h1 className="text-5xl lg:text-8xl font-bold text-gray-900 mb-8 leading-tight">
+
+            <h1 className="text-5xl lg:text-8xl font-bold mb-8 leading-tight drop-shadow-lg">
               Your Dreams,
-              <span className="text-transparent bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text block">
-               Our Builds
+              <span className="text-transparent bg-gradient-to-r from-emerald-1000 via-green-1000 to-teal-400 bg-clip-text block animate-pulse">
+                Our Builds
               </span>
             </h1>
-            
-            <p className="text-xl lg:text-2xl text-gray-700 mb-10 leading-relaxed max-w-3xl">
+
+            <p className="text-xl lg:text-2xl text-black-100/90 mb-10 leading-relaxed max-w-3xl">
               Your trusted partner in construction, house rentals, renovations, 
               and engineering services. We turn visions into reality with precision and care.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6">
               <Link to="/quote">
-                <Button className="group bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-emerald-500/25 border border-emerald-400/20">
+                <Button className="group bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl">
                   Get Free Quote
                   <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} />
                 </Button>
               </Link>
-              
+
               <Link to="/projects">
-                <Button className="group relative overflow-hidden bg-white/10 backdrop-blur-md border-2 border-emerald-300/50 text-emerald-800 hover:text-emerald-900 px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-emerald-200/50">
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-100/20 to-green-100/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Button className="group relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/30 text-white hover:text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-emerald-100/30">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-200/20 to-green-100/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative flex items-center gap-3 font-semibold">
                     View Projects
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
                   </span>
                 </Button>
               </Link>
@@ -100,10 +115,10 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-12 border-2 border-emerald-400 rounded-full flex justify-center relative">
-            <div className="w-1 h-4 bg-gradient-to-b from-emerald-500 to-transparent rounded-full mt-2 animate-pulse"></div>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+          <div className="w-6 h-12 border-2 border-white/50 rounded-full flex justify-center relative">
+            <div className="w-1 h-4 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
