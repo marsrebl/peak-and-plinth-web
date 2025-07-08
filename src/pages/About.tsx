@@ -28,9 +28,9 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20" style={{ backgroundColor: '#9EB3C2' }}>
+    <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-green-600 via-green-700 to-green-800 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)]"></div>
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)]"></div>
@@ -38,7 +38,7 @@ const About = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">About Us</h1>
-            <p className="text-xl text-green-50 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto">
               With over 15 years of experience, Real Estate Crafters International has been 
               the cornerstone of quality construction and real estate services.
             </p>
@@ -47,12 +47,12 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20" style={{ backgroundColor: '#E2E8CE' }}>
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-              <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p className="text-lg">
                   Founded in 2009, Real Estate Crafters International began as a small 
                   construction company with a big vision: to transform the way people 
@@ -71,7 +71,7 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-green-200 to-green-300 rounded-2xl blur-xl opacity-50"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-emerald-200 to-green-200 rounded-2xl blur-xl opacity-50"></div>
               <img
                 src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop"
                 alt="Our Story"
@@ -83,24 +83,24 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20" style={{ backgroundColor: '#9EB3C2' }}>
+      <section className="py-20 bg-gradient-to-b from-emerald-50 to-green-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               The principles that guide everything we do
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0" style={{ backgroundColor: '#E2E8CE' }}>
+              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-0">
                 <CardContent className="p-8">
-                  <div className="bg-gradient-to-br from-green-100 to-green-200 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:from-green-200 group-hover:to-green-300 transition-colors shadow-lg">
-                    <value.icon className="text-green-600" size={24} />
+                  <div className="bg-gradient-to-br from-emerald-100 to-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 group-hover:from-emerald-200 group-hover:to-green-200 transition-colors shadow-lg">
+                    <value.icon className="text-emerald-600" size={24} />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{value.description}</p>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -109,11 +109,11 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20" style={{ backgroundColor: '#E2E8CE' }}>
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Leadership</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the experienced professionals leading our company
             </p>
           </div>
@@ -124,10 +124,10 @@ const About = () => {
               { name: 'Sarah Johnson', role: 'Head of Construction', image: 'photo-1494790108755-2616c6fe904' },
               { name: 'Michael Chen', role: 'Chief Engineer', image: 'photo-1472099645785-5658abf4ff4e' }
             ].map((member, index) => (
-              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0" style={{ backgroundColor: '#9EB3C2' }}>
+              <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white border-0">
                 <CardContent className="p-8">
                   <div className="relative mb-6">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-green-200 to-green-300 rounded-full blur opacity-50"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-emerald-200 to-green-200 rounded-full blur opacity-50"></div>
                     <img
                       src={`https://images.unsplash.com/${member.image}?w=200&h=200&fit=crop&crop=face`}
                       alt={member.name}
@@ -135,7 +135,7 @@ const About = () => {
                     />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-green-600 font-medium">{member.role}</p>
+                  <p className="text-emerald-600 font-medium">{member.role}</p>
                 </CardContent>
               </Card>
             ))}

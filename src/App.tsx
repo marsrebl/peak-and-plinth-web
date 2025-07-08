@@ -30,7 +30,7 @@ const AppContent = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#9EB3C2' }}>
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navigation />
       <main className="flex-1">
         <ScrollToTop/>
