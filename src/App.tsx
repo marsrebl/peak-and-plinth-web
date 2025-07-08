@@ -30,7 +30,7 @@ const AppContent = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-orange-50">
       <Navigation />
       <main className="flex-1">
         <ScrollToTop/>
