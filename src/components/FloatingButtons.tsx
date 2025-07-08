@@ -28,7 +28,7 @@ export const FloatingButtons = () => {
       {/* Call Button */}
       <Button
         onClick={handleCall}
-        className="w-14 h-14 rounded-full gradient-mixed text-white shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+        className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-110 flex items-center justify-center"
         title="Call us now"
       >
         <Phone size={20} />
@@ -38,7 +38,7 @@ export const FloatingButtons = () => {
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
-          className="w-14 h-14 rounded-full bg-slate-800 hover:bg-slate-900 text-white shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center animate-fade-in"
+          className="w-14 h-14 rounded-full bg-gray-800 hover:bg-gray-900 text-white shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center animate-fade-in"
           title="Scroll to top"
         >
           <ChevronUp size={20} />
