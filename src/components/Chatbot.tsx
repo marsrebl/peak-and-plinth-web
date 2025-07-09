@@ -51,7 +51,7 @@ export const Chatbot = () => {
     return (
       <Button
         onClick={() => setIsOpen(true)}
-        className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-110 flex items-center justify-center animate-pulse"
+        className="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-110 flex items-center justify-center"
         title="Open chat"
       >
         <MessageCircle size={20} />
@@ -62,7 +62,7 @@ export const Chatbot = () => {
   return (
     <div className="bg-white rounded-lg shadow-2xl border border-gray-200 w-80 h-96 flex flex-col animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between">
+      <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 rounded-t-lg flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <MessageCircle size={20} />
           <span className="font-semibold">Chat Support</span>
@@ -70,14 +70,14 @@ export const Chatbot = () => {
         <div className="flex space-x-2">
           <Button
             onClick={() => setIsOpen(false)}
-            className="w-6 h-6 p-0 bg-transparent hover:bg-blue-800 text-white"
+            className="w-6 h-6 p-0 bg-transparent hover:bg-emerald-800 text-white"
             title="Minimize"
           >
             <Minus size={14} />
           </Button>
           <Button
             onClick={() => setIsOpen(false)}
-            className="w-6 h-6 p-0 bg-transparent hover:bg-blue-800 text-white"
+            className="w-6 h-6 p-0 bg-transparent hover:bg-emerald-800 text-white"
             title="Close"
           >
             <X size={14} />
@@ -95,7 +95,7 @@ export const Chatbot = () => {
             <div
               className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
                 message.sender === 'user'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-emerald-600 text-white'
                   : 'bg-gray-100 text-gray-800'
               }`}
             >
@@ -114,11 +114,11 @@ export const Chatbot = () => {
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Type your message..."
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
           <Button
             onClick={handleSendMessage}
-            className="w-10 h-10 p-0 bg-blue-600 hover:bg-blue-700 text-white rounded-full"
+            className="w-10 h-10 p-0 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
           >
             <Send size={16} />
           </Button>
