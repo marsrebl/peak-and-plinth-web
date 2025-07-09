@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -80,21 +81,22 @@ const Quote = () => {
       case 1:
         return (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold mb-4">What type of project do you have?</h3>
+            <h3 className="text-xl font-semibold mb-4 animate-slide-in-up">What type of project do you have?</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { value: "new-construction", label: "New Construction", desc: "Build from ground up" },
                 { value: "renovation", label: "Renovation", desc: "Update existing property" },
                 { value: "rental", label: "Rental Inquiry", desc: "Find rental property" },
                 { value: "engineering", label: "Engineering", desc: "Technical consultation" },
-              ].map((option) => (
+              ].map((option, index) => (
                 <Card
                   key={option.value}
                   className={`cursor-pointer transition-all border ${
                     formData.projectType === option.value
-                      ? "border-gold-500 bg-gold-50 shadow-md"
+                      ? "border-emerald-500 bg-emerald-50 shadow-md"
                       : "border-gray-200 hover:shadow-lg"
-                  } rounded-lg`}
+                  } rounded-lg animate-scale-in hover:scale-105 duration-300`}
+                  style={{animationDelay: `${index * 150}ms`}}
                   onClick={() => handleChange("projectType", option.value)}
                 >
                   <CardContent className="p-4">
@@ -106,7 +108,7 @@ const Quote = () => {
             </div>
 
             {formData.projectType && (
-              <div>
+              <div className="animate-slide-in-up delay-600">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Specific Service Needed
                 </label>
@@ -114,7 +116,7 @@ const Quote = () => {
                   value={formData.serviceType}
                   onValueChange={(value) => handleChange("serviceType", value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="transition-colors duration-300 border-emerald-200 focus:border-emerald-500">
                     <SelectValue placeholder="Select specific service" />
                   </SelectTrigger>
                   <SelectContent>
@@ -157,16 +159,16 @@ const Quote = () => {
       case 2:
         return (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold mb-4">Project Details</h3>
+            <h3 className="text-xl font-semibold mb-4 animate-slide-in-up">Project Details</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+              <div className="animate-slide-in-left delay-200">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
                 <Select
                   value={formData.propertyType}
                   onValueChange={(value) => handleChange("propertyType", value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="transition-colors duration-300 border-emerald-200 focus:border-emerald-500">
                     <SelectValue placeholder="Select property type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -179,13 +181,13 @@ const Quote = () => {
                 </Select>
               </div>
 
-              <div>
+              <div className="animate-slide-in-right delay-300">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Project Size</label>
                 <Select
                   value={formData.projectSize}
                   onValueChange={(value) => handleChange("projectSize", value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="transition-colors duration-300 border-emerald-200 focus:border-emerald-500">
                     <SelectValue placeholder="Select project size" />
                   </SelectTrigger>
                   <SelectContent>
@@ -199,13 +201,13 @@ const Quote = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+              <div className="animate-slide-in-left delay-400">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Timeline</label>
                 <Select
                   value={formData.timeline}
                   onValueChange={(value) => handleChange("timeline", value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="transition-colors duration-300 border-emerald-200 focus:border-emerald-500">
                     <SelectValue placeholder="Select timeline" />
                   </SelectTrigger>
                   <SelectContent>
@@ -218,13 +220,13 @@ const Quote = () => {
                 </Select>
               </div>
 
-              <div>
+              <div className="animate-slide-in-right delay-500">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
                 <Select
                   value={formData.budget}
                   onValueChange={(value) => handleChange("budget", value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="transition-colors duration-300 border-emerald-200 focus:border-emerald-500">
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
                   <SelectContent>
@@ -243,8 +245,8 @@ const Quote = () => {
       case 3:
         return (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold mb-4">Additional Services</h3>
-            <p className="text-gray-600 mb-6">Select any additional services you might need:</p>
+            <h3 className="text-xl font-semibold mb-4 animate-slide-in-up">Additional Services</h3>
+            <p className="text-gray-600 mb-6 animate-fade-in delay-200">Select any additional services you might need:</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
@@ -256,14 +258,15 @@ const Quote = () => {
                 "Permit Assistance",
                 "Property Management",
                 "Maintenance Services",
-              ].map((service) => (
-                <div key={service} className="flex items-center space-x-3">
+              ].map((service, index) => (
+                <div key={service} className="flex items-center space-x-3 animate-slide-in-left" style={{animationDelay: `${index * 100}ms`}}>
                   <Checkbox
                     id={service}
                     checked={formData.additionalServices.includes(service)}
                     onCheckedChange={() => toggleService(service)}
+                    className="transition-colors duration-300"
                   />
-                  <label htmlFor={service} className="text-sm font-medium text-gray-700 cursor-pointer">
+                  <label htmlFor={service} className="text-sm font-medium text-gray-700 cursor-pointer transition-colors duration-300 hover:text-emerald-600">
                     {service}
                   </label>
                 </div>
@@ -275,31 +278,31 @@ const Quote = () => {
       case 4:
         return (
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
+            <h3 className="text-xl font-semibold mb-4 animate-slide-in-up">Contact Information</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+              <div className="animate-slide-in-left delay-200">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                 <Input
                   required
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   placeholder="Your full name"
-                  className="bg-white shadow-sm"
+                  className="bg-white shadow-sm transition-colors duration-300 border-emerald-200 focus:border-emerald-500"
                 />
               </div>
-              <div>
+              <div className="animate-slide-in-right delay-300">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                 <Input
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   placeholder="Your phone number"
-                  className="bg-white shadow-sm"
+                  className="bg-white shadow-sm transition-colors duration-300 border-emerald-200 focus:border-emerald-500"
                 />
               </div>
             </div>
 
-            <div>
+            <div className="animate-slide-in-up delay-400">
               <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
               <Input
                 type="email"
@@ -307,28 +310,28 @@ const Quote = () => {
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
                 placeholder="your.email@example.com"
-                className="bg-white shadow-sm"
+                className="bg-white shadow-sm transition-colors duration-300 border-emerald-200 focus:border-emerald-500"
               />
             </div>
 
-            <div>
+            <div className="animate-slide-in-up delay-500">
               <label className="block text-sm font-medium text-gray-700 mb-2">Property Address</label>
               <Input
                 value={formData.address}
                 onChange={(e) => handleChange("address", e.target.value)}
                 placeholder="Where is your project located?"
-                className="bg-white shadow-sm"
+                className="bg-white shadow-sm transition-colors duration-300 border-emerald-200 focus:border-emerald-500"
               />
             </div>
 
-            <div>
+            <div className="animate-slide-in-up delay-600">
               <label className="block text-sm font-medium text-gray-700 mb-2">Additional Details</label>
               <Textarea
                 rows={4}
                 value={formData.description}
                 onChange={(e) => handleChange("description", e.target.value)}
                 placeholder="Tell us more about your project, specific requirements, or any questions you have..."
-                className="resize-none bg-white shadow-sm"
+                className="resize-none bg-white shadow-sm transition-colors duration-300 border-emerald-200 focus:border-emerald-500"
               />
             </div>
           </div>
@@ -343,12 +346,15 @@ const Quote = () => {
     <div className="min-h-screen pt-20 bg-gray-50">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10 pointer-events-none" />
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)] animate-pulse delay-700"></div>
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <Calculator className="mx-auto text-gold-400 mb-6" size={64} />
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">Get Your Quote</h1>
-            <p className="text-xl text-black-200 leading-relaxed">
+            <Calculator className="mx-auto text-white mb-6 animate-scale-in" size={64} />
+            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 animate-slide-in-down">Get Your Quote</h1>
+            <p className="text-xl text-emerald-50 leading-relaxed animate-fade-in delay-500">
               Tell us about your project and we'll provide you with a detailed, personalized quote
             </p>
           </div>
@@ -358,30 +364,30 @@ const Quote = () => {
       {/* Form Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-gray-200 p-10">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-gray-200 p-10 animate-scale-in">
             {/* Progress */}
             <div className="mb-10">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-4 animate-slide-in-up delay-200">
                 {[1, 2, 3, 4].map((step) => (
                   <div key={step} className="flex items-center">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
-                        step <= currentStep ? "bg-gold-600 text-white" : "bg-gray-300 text-gray-700"
+                      className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
+                        step <= currentStep ? "bg-emerald-600 text-white animate-scale-in" : "bg-gray-300 text-gray-700"
                       }`}
                     >
                       {step < currentStep ? <CheckCircle size={20} /> : step}
                     </div>
                     {step < 4 && (
                       <div
-                        className={`flex-1 h-1 mx-4 ${
-                          step < currentStep ? "bg-gold-600" : "bg-gray-300"
+                        className={`flex-1 h-1 mx-4 transition-all duration-500 ${
+                          step < currentStep ? "bg-emerald-600" : "bg-gray-300"
                         }`}
                       />
                     )}
                   </div>
                 ))}
               </div>
-              <p className="text-center text-gray-600 font-medium">
+              <p className="text-center text-gray-600 font-medium animate-fade-in delay-400">
                 Step {currentStep} of 4:{" "}
                 {currentStep === 1
                   ? "Project Type"
@@ -396,13 +402,13 @@ const Quote = () => {
             <form onSubmit={handleSubmit}>
               {renderStep()}
 
-              <div className="flex justify-between mt-10">
+              <div className="flex justify-between mt-10 animate-slide-in-up delay-600">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={handleBack}
                   disabled={currentStep === 1}
-                  className="px-6"
+                  className="px-6 transition-all duration-300 hover:scale-105 border-emerald-300 text-emerald-700 hover:bg-emerald-50"
                 >
                   Back
                 </Button>
@@ -411,7 +417,7 @@ const Quote = () => {
                   <Button
                     type="button"
                     onClick={handleNext}
-                    className="bg-gold-600 hover:bg-gold-700 text-white px-6"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 transition-all duration-300 hover:scale-105"
                     disabled={
                       (currentStep === 1 && (!formData.projectType || !formData.serviceType)) ||
                       (currentStep === 2 && (!formData.propertyType || !formData.projectSize))
@@ -422,7 +428,7 @@ const Quote = () => {
                 ) : (
                   <Button
                     type="submit"
-                    className="bg-gold-600 hover:bg-gold-700 text-white px-8"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 transition-all duration-300 hover:scale-105"
                     disabled={!formData.name || !formData.email}
                   >
                     Submit Quote Request
@@ -435,10 +441,10 @@ const Quote = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gold-50">
+      <section className="py-20 bg-emerald-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-navy-800 mb-4">Why Request a Quote?</h2>
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 animate-slide-in-up">Why Request a Quote?</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
@@ -455,11 +461,11 @@ const Quote = () => {
                 desc: "Get your personalized quote within 24-48 hours",
               },
             ].map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-gold-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle className="text-gold-600" size={24} />
+              <div key={index} className="text-center animate-scale-in" style={{animationDelay: `${index * 200}ms`}}>
+                <div className="bg-emerald-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 animate-scale-in hover:scale-110 transition-transform duration-300" style={{animationDelay: `${index * 300}ms`}}>
+                  <CheckCircle className="text-emerald-600" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-navy-800 mb-2">{benefit.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.desc}</p>
               </div>
             ))}

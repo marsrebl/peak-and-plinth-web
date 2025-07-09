@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -111,13 +112,13 @@ const Rentals = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)] animate-pulse delay-700"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">Premium Rentals</h1>
-            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg animate-slide-in-down">Premium Rentals</h1>
+            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto animate-fade-in delay-500">
               Find your perfect home from our curated collection of premium rental properties
             </p>
           </div>
@@ -127,8 +128,8 @@ const Rentals = () => {
       {/* Search & Filters */}
       <section className="py-8 bg-white border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
-            <div className="relative flex-1 max-w-md">
+          <div className="flex flex-col lg:flex-row gap-4 items-center animate-slide-in-up">
+            <div className="relative flex-1 max-w-md animate-slide-in-left delay-200">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               <Input
                 type="text"
@@ -140,7 +141,7 @@ const Rentals = () => {
             </div>
             
             <Select value={priceRange} onValueChange={setPriceRange}>
-              <SelectTrigger className="w-full lg:w-48 border-emerald-200 focus:border-emerald-500">
+              <SelectTrigger className="w-full lg:w-48 border-emerald-200 focus:border-emerald-500 animate-slide-in-right delay-300">
                 <SelectValue placeholder="Price Range" />
               </SelectTrigger>
               <SelectContent>
@@ -152,7 +153,7 @@ const Rentals = () => {
             </Select>
 
             <Select value={propertyType} onValueChange={setPropertyType}>
-              <SelectTrigger className="w-full lg:w-48 border-emerald-200 focus:border-emerald-500">
+              <SelectTrigger className="w-full lg:w-48 border-emerald-200 focus:border-emerald-500 animate-slide-in-right delay-400">
                 <SelectValue placeholder="Property Type" />
               </SelectTrigger>
               <SelectContent>
@@ -170,8 +171,8 @@ const Rentals = () => {
       <section className="py-12 bg-gradient-to-b from-emerald-50 to-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProperties.map((property) => (
-              <Card key={property.id} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 overflow-hidden bg-white">
+            {filteredProperties.map((property, index) => (
+              <Card key={property.id} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 overflow-hidden bg-white animate-fade-in" style={{animationDelay: `${index * 150}ms`}}>
                 <div className="relative aspect-video">
                   <img
                     src={`https://images.unsplash.com/${property.image}?w=400&h=300&fit=crop`}
@@ -180,27 +181,28 @@ const Rentals = () => {
                   />
                   <button
                     onClick={() => toggleFavorite(property.id)}
-                    className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg"
+                    className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors shadow-lg hover:scale-110 duration-300 animate-scale-in"
+                    style={{animationDelay: `${index * 200}ms`}}
                   >
                     <Heart 
-                      className={`w-5 h-5 ${favorites.includes(property.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} 
+                      className={`w-5 h-5 transition-colors duration-300 ${favorites.includes(property.id) ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} 
                     />
                   </button>
-                  <div className="absolute bottom-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-lg">
+                  <div className="absolute bottom-4 left-4 bg-emerald-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-lg animate-slide-in-left" style={{animationDelay: `${index * 250}ms`}}>
                     <span className="text-lg font-bold">NPR {property.price.toLocaleString()}</span>
                     <span className="text-sm">/month</span>
                   </div>
                 </div>
                 
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{property.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">{property.title}</h3>
                   
-                  <div className="flex items-center text-gray-600 mb-4">
+                  <div className="flex items-center text-gray-600 mb-4 animate-slide-in-left" style={{animationDelay: `${index * 300}ms`}}>
                     <MapPin size={16} className="mr-1" />
                     <span className="text-sm">{property.location}</span>
                   </div>
 
-                  <div className="flex items-center gap-4 mb-4 text-gray-600 text-sm">
+                  <div className="flex items-center gap-4 mb-4 text-gray-600 text-sm animate-slide-in-up" style={{animationDelay: `${index * 350}ms`}}>
                     <div className="flex items-center">
                       <Bed size={16} className="mr-1" />
                       <span>{property.bedrooms}</span>
@@ -215,22 +217,22 @@ const Rentals = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {property.features.slice(0, 2).map((feature, index) => (
-                      <span key={index} className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">
+                  <div className="flex flex-wrap gap-2 mb-4 animate-fade-in" style={{animationDelay: `${index * 400}ms`}}>
+                    {property.features.slice(0, 2).map((feature, featureIndex) => (
+                      <span key={featureIndex} className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full animate-scale-in" style={{animationDelay: `${index * 450 + featureIndex * 50}ms`}}>
                         {feature}
                       </span>
                     ))}
                     {property.features.length > 2 && (
-                      <span className="text-xs text-gray-500">+{property.features.length - 2} more</span>
+                      <span className="text-xs text-gray-500 animate-fade-in" style={{animationDelay: `${index * 500}ms`}}>+{property.features.length - 2} more</span>
                     )}
                   </div>
 
-                  <div className="flex gap-2">
-                    <Button className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white">
+                  <div className="flex gap-2 animate-slide-in-up" style={{animationDelay: `${index * 550}ms`}}>
+                    <Button className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-300 hover:scale-105">
                       View Details
                     </Button>
-                    <Button variant="outline" className="border-emerald-300 text-emerald-700 hover:bg-emerald-50">
+                    <Button variant="outline" className="border-emerald-300 text-emerald-700 hover:bg-emerald-50 transition-all duration-300 hover:scale-105">
                       Contact
                     </Button>
                   </div>
@@ -240,24 +242,27 @@ const Rentals = () => {
           </div>
 
           {filteredProperties.length === 0 && (
-            <div className="text-center py-16">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">No properties found</h3>
-              <p className="text-gray-600">Try adjusting your search criteria</p>
+            <div className="text-center py-16 animate-fade-in">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4 animate-slide-in-up">No properties found</h3>
+              <p className="text-gray-600 animate-slide-in-up delay-200">Try adjusting your search criteria</p>
             </div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] animate-pulse"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl font-bold text-white mb-6 animate-slide-in-up">
             Can't Find What You're Looking For?
           </h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto animate-fade-in delay-300">
             Our team can help you find the perfect rental property that meets all your requirements
           </p>
-          <Button className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-semibold shadow-xl">
+          <Button className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-semibold shadow-xl animate-slide-in-up delay-500">
             Contact Our Rental Team
           </Button>
         </div>
