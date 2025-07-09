@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -56,54 +57,54 @@ const Index = () => {
       <section className="relative h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 overflow-hidden">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100 animate-fade-in"
           style={{
             backgroundImage: "url('../images/captions.jpg')"
           }}
         ></div>
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/30 animate-fade-in"></div>
 
         {/* Decorative Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-100/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-green-100/10 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
           <div className="max-w-4xl animate-fade-in text-white">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                <Sparkles className="w-4 h-4 text-emerald-200" />
+            <div className="flex items-center gap-3 mb-6 animate-slide-in-left delay-200">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <Sparkles className="w-4 h-4 text-emerald-200 animate-pulse" />
                 <span className="text-emerald-100 text-sm font-medium">Premium Real Estate Solutions</span>
               </div>
             </div>
 
-            <h1 className="text-5xl lg:text-8xl font-bold mb-8 leading-tight drop-shadow-lg">
+            <h1 className="text-5xl lg:text-8xl font-bold mb-8 leading-tight drop-shadow-lg animate-slide-in-left delay-300">
               Your Dreams,
-              <span className="text-transparent bg-gradient-to-r from-emerald-1000 via-green-1000 to-teal-400 bg-clip-text block animate-pulse">
+              <span className="text-transparent bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 bg-clip-text block animate-pulse delay-700">
                 Our Builds
               </span>
             </h1>
 
-            <p className="text-xl lg:text-2xl text-black-100/90 mb-10 leading-relaxed max-w-3xl">
+            <p className="text-xl lg:text-2xl text-black-100/90 mb-10 leading-relaxed max-w-3xl animate-slide-in-left delay-500">
               Your trusted partner in construction, house rentals, renovations, 
               and engineering services. We turn visions into reality with precision and care.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-6 animate-slide-in-left delay-700">
               <Link to="/quote">
-                <Button className="group bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl">
+                <Button className="group bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in delay-1000">
                   Get Free Quote
                   <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} />
                 </Button>
               </Link>
 
               <Link to="/projects">
-                <Button className="group relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/30 text-white hover:text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-emerald-100/30">
+                <Button className="group relative overflow-hidden bg-white/10 backdrop-blur-md border border-white/30 text-white hover:text-white px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-emerald-100/30 animate-fade-in delay-1200">
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-200/20 to-green-100/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative flex items-center gap-3 font-semibold">
                     View Projects
@@ -124,16 +125,16 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-gradient-to-br from-emerald-100 to-green-50 w-20 h-20 mx-auto rounded-2xl flex items-center justify-center mb-6 group-hover:from-emerald-200 group-hover:to-green-100 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:scale-110">
-                  <stat.icon className="text-emerald-600" size={28} />
+              <div key={index} className="text-center group animate-fade-in" style={{animationDelay: `${index * 200}ms`}}>
+                <div className="bg-gradient-to-br from-emerald-100 to-green-50 w-20 h-20 mx-auto rounded-2xl flex items-center justify-center mb-6 group-hover:from-emerald-200 group-hover:to-green-100 transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:scale-110 animate-slide-in-up" style={{animationDelay: `${index * 300}ms`}}>
+                  <stat.icon className="text-emerald-600 transition-transform duration-300 group-hover:rotate-12" size={28} />
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent mb-3">{stat.value}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent mb-3 animate-scale-in" style={{animationDelay: `${index * 400}ms`}}>{stat.value}</div>
+                <div className="text-gray-600 font-medium animate-fade-in" style={{animationDelay: `${index * 500}ms`}}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -141,51 +142,51 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-emerald-50 to-white">
+      <section className="py-24 bg-gradient-to-b from-emerald-50 to-white overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6 animate-fade-in">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
               <span className="text-emerald-700 font-medium">Our Services</span>
             </div>
-            <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6">
+            <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6 animate-slide-in-down delay-200">
               Excellence in Every Service
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-400">
               We offer comprehensive solutions for all your real estate and construction needs with unmatched quality and professionalism
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 overflow-hidden bg-white/90 backdrop-blur-sm">
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 overflow-hidden bg-white/90 backdrop-blur-sm animate-fade-in" style={{animationDelay: `${index * 200}ms`}}>
                 <div className="aspect-square overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => {
                       e.currentTarget.src = `https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=400&fit=crop`;
                     }}
                   />
-                  <div className="absolute bottom-4 left-4 z-20">
-                    <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute bottom-4 left-4 z-20 animate-slide-in-left delay-500">
+                    <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <service.icon className="text-white" size={20} />
                     </div>
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          <div className="text-center mt-16 animate-fade-in delay-1000">
             <Link to="/services">
-              <Button className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-10 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl">
+              <Button className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-10 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl">
                 View All Services
                 <ArrowRight className="ml-3" size={18} />
               </Button>
@@ -197,21 +198,21 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)] animate-pulse delay-500"></div>
         </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+          <h2 className="text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight animate-slide-in-up">
             Ready to Start Your
-            <span className="text-emerald-100 block">
+            <span className="text-emerald-100 block animate-slide-in-up delay-200">
               Dream Project?
             </span>
           </h2>
-          <p className="text-xl text-emerald-50 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-emerald-50 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in delay-400">
             Let's discuss your vision and create something extraordinary together. Our team is ready to bring your dreams to life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-in-up delay-600">
             <Link to="/contact">
               <Button className="bg-white text-emerald-600 hover:bg-emerald-50 px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl font-semibold">
                 Contact Us Today

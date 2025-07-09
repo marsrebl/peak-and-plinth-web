@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -45,7 +46,7 @@ const Services = () => {
     {
       icon: Paintbrush,
       title: 'House Painting Services',
-      description: 'Transform your home’s appearance with premium paint jobs and aesthetic consultations.',
+      description: 'Transform your home's appearance with premium paint jobs and aesthetic consultations.',
       features: [
         'Interior & Exterior Painting',
         'Weatherproof & Eco-Friendly Paints',
@@ -73,13 +74,13 @@ const Services = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent)] animate-pulse delay-500"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">Our Services</h1>
-            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto">
+            <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg animate-slide-in-down">Our Services</h1>
+            <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto animate-fade-in delay-500">
               One-stop solutions for construction, maintenance, and property management.
             </p>
           </div>
@@ -91,33 +92,33 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden bg-white">
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-0 overflow-hidden bg-white animate-fade-in hover:-translate-y-2" style={{animationDelay: `${index * 200}ms`}}>
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div className="aspect-square md:aspect-auto relative overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent group-hover:from-emerald-900/30 transition-colors duration-300"></div>
                   </div>
                   <CardContent className="p-8 flex flex-col justify-center">
-                    <div className="bg-gradient-to-br from-emerald-100 to-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                    <div className="bg-gradient-to-br from-emerald-100 to-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 animate-scale-in" style={{animationDelay: `${index * 300}ms`}}>
                       <service.icon className="text-emerald-600" size={20} />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">{service.title}</h3>
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                     <ul className="space-y-2 mb-6">
                       {service.features.map((feature, idx) => (
-                        <li key={idx} className="text-gray-600 flex items-center">
-                          <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                        <li key={idx} className="text-gray-600 flex items-center animate-slide-in-left" style={{animationDelay: `${index * 400 + idx * 100}ms`}}>
+                          <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
                           {feature}
                         </li>
                       ))}
                     </ul>
                     <Link to="/contact">
-                      <Button className="mt-4 bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300">
-                        Contact Us <ArrowRight className="ml-2" size={16} />
+                      <Button className="mt-4 bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                        Contact Us <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
                       </Button>
                     </Link>
                   </CardContent>
@@ -129,16 +130,19 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)] animate-pulse"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl font-bold text-white mb-6 animate-slide-in-up">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto animate-fade-in delay-300">
             Contact us today to discuss your project and get a free consultation
           </p>
           <Link to="/quote">
-            <Button className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-semibold shadow-xl">
+            <Button className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-semibold shadow-xl hover:shadow-2xl animate-slide-in-up delay-500">
               Get Free Quote
               <ArrowRight className="ml-2" size={20} />
             </Button>
