@@ -46,7 +46,7 @@ const Services = () => {
     {
       icon: Paintbrush,
       title: 'House Painting Services',
-      description: 'Transform your home's appearance with premium paint jobs and aesthetic consultations.',
+      description: 'Transform your home\'s appearance with premium paint jobs and aesthetic consultations.',
       features: [
         'Interior & Exterior Painting',
         'Weatherproof & Eco-Friendly Paints',
