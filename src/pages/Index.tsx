@@ -45,9 +45,9 @@ const Index = () => {
   ];
 
   const stats = [
-    { icon: Award, value: '500+', label: 'Projects Completed' },
-    { icon: Users, value: '250+', label: 'Happy Clients' },
-    { icon: Calendar, value: '15+', label: 'Years Experience' },
+    { icon: Award, value: '50+', label: 'Projects Completed' },
+    { icon: Users, value: '70+', label: 'Happy Clients' },
+    { icon: Calendar, value: '5+', label: 'Years Experience' },
     { icon: CheckCircle, value: '100%', label: 'Success Rate' }
   ];
 

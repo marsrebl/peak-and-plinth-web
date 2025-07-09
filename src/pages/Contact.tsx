@@ -175,8 +175,8 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
                         <p className="text-gray-600">
-                          Main: 9806255843<br />
-                          Alternative:98000000
+                          Main:9707362231<br />
+                          Alternative:9806255843
                         </p>
                       </div>
                     </div>
@@ -192,8 +192,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
                         <p className="text-gray-600">
-                          General: info@realestatecrafter.com<br />
-                          Projects: projects@realestatecrafter.com
+                          General:realestatecrafters1@gmail.com<br />
                         </p>
                       </div>
                     </div>

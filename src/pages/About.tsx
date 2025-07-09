@@ -41,7 +41,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg animate-slide-in-down">About Us</h1>
             <p className="text-xl text-emerald-50 leading-relaxed max-w-3xl mx-auto animate-fade-in delay-500">
-              With over 15 years of experience, Real Estate Crafters International has been 
+              With over 5 years of experience, Real Estate Crafters International has been 
               the cornerstone of quality construction and real estate services.
             </p>
           </div>
@@ -56,7 +56,7 @@ const About = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-6 animate-slide-in-left delay-200">Our Story</h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p className="text-lg animate-fade-in delay-400">
-                  Founded in 2009, Real Estate Crafters International began as a small 
+                  Founded in 2081, Real Estate Crafters International began as a small 
                   construction company with a big vision: to transform the way people 
                   experience construction and real estate services.
                 </p>

@@ -99,22 +99,22 @@ export const Footer = () => {
                   <MapPin className="text-green-400 group-hover:text-white" size={16} />
                 </div>
                 <div className="text-slate-300">
-                  123 Business District<br />
-                  Construction Plaza<br />
-                  City, State 12345
+                  Dhanusha District<br />
+                  Janakpurdham<br />
+                   Nepal
                 </div>
               </div>
               <div className="flex items-center space-x-3 group">
                 <div className="bg-slate-700 p-2 rounded-lg group-hover:bg-green-600 transition-colors duration-300">
                   <Phone className="text-green-400 group-hover:text-white" size={16} />
                 </div>
-                <span className="text-slate-300">+1 (555) 123-4567</span>
+                <span className="text-slate-300">9807362231</span>
               </div>
               <div className="flex items-center space-x-3 group">
                 <div className="bg-slate-700 p-2 rounded-lg group-hover:bg-green-600 transition-colors duration-300">
                   <Mail className="text-green-400 group-hover:text-white" size={16} />
                 </div>
-                <span className="text-slate-300">info@realestatecrafter.com</span>
+                <span className="text-slate-300">realestatecrafters1@gmail.com</span>
               </div>
             </div>
           </div>
