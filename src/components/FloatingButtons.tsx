@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Chatbot } from './Chatbot';
 
 export const FloatingButtons = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -25,6 +26,11 @@ export const FloatingButtons = () => {
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+      {/* Chatbot */}
+      <div className="flex justify-end">
+        <Chatbot />
+      </div>
+
       {/* Call Button */}
       <Button
         onClick={handleCall}
